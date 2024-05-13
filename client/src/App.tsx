@@ -28,10 +28,10 @@ const App: React.FC = () => {
     // Function to load items
     const loadItems = async () => {
       setLoading(true); // Set loading before API call
-      const fetchedItems = await fetchItems(search, 0, 5); // Always start at offset 0
+      const fetchedItems = await fetchItems(search, 0, 10); // Always start at offset 0
       setItems(fetchedItems); // Reset the items array with new results
       setOffset(fetchedItems.length);
-      setHasMore(fetchedItems.length === 5); // Check if there might be more items to load
+      setHasMore(fetchedItems.length === 10); // Check if there might be more items to load
       setLoading(false);
     };
 
@@ -45,10 +45,10 @@ const App: React.FC = () => {
   const loadMoreItems = async () => {
     if (loading || !hasMore) return;
     setLoading(true);
-    const fetchedItems = await fetchItems(search, offset, 5);
+    const fetchedItems = await fetchItems(search, offset, 10);
     setItems(prevItems => [...prevItems, ...fetchedItems]);
     setOffset(prevOffset => prevOffset + fetchedItems.length);
-    setHasMore(fetchedItems.length === 5);
+    setHasMore(fetchedItems.length === 10);
     setLoading(false);
   };
 
