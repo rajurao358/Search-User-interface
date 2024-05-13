@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import './style.css';
+import './App.css';
 
 interface Item {
   id: number;
   name: string;
   description: string;
-  price: string;
+  price: string;  
   image: string;
 }
 
